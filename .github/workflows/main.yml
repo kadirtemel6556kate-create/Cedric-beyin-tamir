@@ -9,11 +9,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Derle
-        run: |
-          gradle init --type android-app || true
-          gradle assembleDebug
-      - name: Yukle
+      - name: Gradle Kur ve Derle
+        uses: gradle/gradle-build-action@v3
+        with:
+          gradle-version: 7.5
+          arguments: assembleDebug
+      - name: APK Yukle
         uses: actions/upload-artifact@v4
         with:
           name: Cedric-Hizli-APK
