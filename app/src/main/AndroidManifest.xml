@@ -4,9 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="Cedric AI Tamir"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:label="Cedric AI Tamir">
         
         <activity
             android:name=".MainActivity"
