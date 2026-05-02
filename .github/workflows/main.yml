@@ -4,10 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Java Kurulumu
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v4
+      - name: Java 17 Kurulumu
+        uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Calistirma Izni Ver
+        run: chmod +x gradlew
       - name: APK Oluştur
-        run: bash ./gradlew assembleDebug
+        run: ./gradlew assembleDebug
