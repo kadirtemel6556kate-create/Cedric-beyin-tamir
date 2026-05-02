@@ -1,21 +1,25 @@
-name: APK-Uretici
+name: APK Derleyici
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      
+      - name: Java Kur
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Gradle Kur ve Derle
+
+      - name: Gradle'ı Dışarıdan Kur ve Derle
         uses: gradle/gradle-build-action@v3
         with:
           gradle-version: 7.5
           arguments: assembleDebug
-      - name: APK Yukle
+
+      - name: APK'yı Hazırla
         uses: actions/upload-artifact@v4
         with:
-          name: Cedric-Hizli-APK
+          name: Cedric-Tamir-APK
           path: app/build/outputs/apk/debug/*.apk
