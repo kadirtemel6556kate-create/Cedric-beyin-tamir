@@ -10,8 +10,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Gradle Kur ve Derle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: assembleDebug
+      - name: Izni Ver ve Derle
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
