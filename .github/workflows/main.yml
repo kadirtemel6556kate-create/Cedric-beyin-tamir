@@ -1,16 +1,19 @@
-name: APK Derleyici
+name: APK Derle
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Java 17 Kurulumu
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Calistirma Izni Ver
+          
+      - name: Gradle Calistirma Izni Ver
         run: chmod +x gradlew
-      - name: APK Oluştur
-        run: ./gradlew assembleDebug
+
+      - name: APK Derleme İşlemi
+        run: ./gradlew assembleDebug --stacktrace
